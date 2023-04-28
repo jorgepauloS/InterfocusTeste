@@ -7,3 +7,7 @@ Bibliotecas utilizadas no Backend:
 - Microsoft.EntityFrameworkCore.Relational - Para fazer as configurações das entidades;
 - Microsoft.EntityFrameworkCore.SqlServer - Para conectar com banco SQL Server e fazer as configurações relacionadas ao banco;
 - AutoMapper - Fazer o mapeamento para conversão entre os DTOs e as entidades.
+
+Instruções:
+- Colocar string de conexão no appsettings.json: ConnectionStrings.SqlConnection;
+- Executar comando "Update-Database" no Package Manager Console.
