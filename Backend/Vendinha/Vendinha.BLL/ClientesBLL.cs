@@ -50,6 +50,11 @@ namespace Vendinha.BLL
 
         public async Task<int> Update(ClienteDto dto, CancellationToken cancellationToken)
         {
+            var cliente = await _clientesRepository.GetById(dto.Id, cancellationToken) ?? throw new BusinessRuleException("Id inválido");
+            cliente.Email = dto.Email;
+            cliente.Nome = dto.Nome;
+            cliente.DataNascimento = dto.DataNascimento;
+
             return await _clientesRepository.Update(_mapper.Map<Cliente>(dto), cancellationToken);
         }
     }
