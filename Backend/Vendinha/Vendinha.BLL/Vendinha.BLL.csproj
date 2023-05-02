@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vendinha.Commons\Vendinha.Commons.csproj" />
+    <ProjectReference Include="..\Vendinha.DAL\Vendinha.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
