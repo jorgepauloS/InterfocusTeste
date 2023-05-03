@@ -11,3 +11,12 @@ Bibliotecas utilizadas no Backend:
 Instruções:
 - Colocar string de conexão no appsettings.json: ConnectionStrings.SqlConnection;
 - Executar comando "Update-Database" no Package Manager Console.
+
+Bibliotecas utilizadas no Frontend:
+- mui - Componentes do material UI;
+- mui/icons-material - Ícones do material UI;
+- react-router-dom - trabalhar de forma simplificada com roteamento;
+- axios - trabalhar de forma simplificada com requisições.
+
+Instruções:
+- Antes de executar, colocar endereço da API no arquivo /vendinha-frontend/src/Services/ApiClient.js.
