@@ -28,7 +28,7 @@ namespace Vendinha.DAL.Repositories
             var param = new SqlParameter("filteredName", $"%{filteredName}%");
 
             StringBuilder sb = new();
-            sb.Append("SELECT C.*, ISNULL((SELECT TOP 1 B.Valor FROM Dividas B WHERE C.Id = B.ClienteId), 0) AS Valor FROM Clientes C");
+            sb.Append("SELECT C.*, ISNULL((SELECT TOP 1 B.Valor FROM Dividas B WHERE C.Id = B.ClienteId AND B.Situacao = 0), 0) AS Valor FROM Clientes C");
             if (!string.IsNullOrWhiteSpace(filteredName))
             {
                 sb.Append($" WHERE (C.Nome LIKE @filteredName)");
