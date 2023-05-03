@@ -28,14 +28,12 @@ namespace Vendinha.DAL.Repositories
             var param = new SqlParameter("filteredName", $"%{filteredName}%");
 
             StringBuilder sb = new();
-            sb.Append("SELECT C.*, D.Valor FROM Clientes C LEFT JOIN Dividas D on (D.ClienteId = C.Id)");
-            sb.Append(" WHERE");
+            sb.Append("SELECT C.*, ISNULL((SELECT TOP 1 B.Valor FROM Dividas B WHERE C.Id = B.ClienteId), 0) AS Valor FROM Clientes C");
             if (!string.IsNullOrWhiteSpace(filteredName))
             {
-                sb.Append($" (C.Nome LIKE @filteredName) AND ");
+                sb.Append($" WHERE (C.Nome LIKE @filteredName)");
             }
-            sb.Append(" (D.Situacao = 0 OR D.Situacao IS NULL)");
-            sb.Append(" ORDER BY D.Valor DESC, C.Nome ASC");
+            sb.Append(" ORDER BY Valor DESC, C.Nome ASC");
             sb.Append($" OFFSET {10 * (page - 1)} ROWS");
             sb.Append($" FETCH NEXT 10 ROWS ONLY");
 
